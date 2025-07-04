@@ -1,0 +1,26 @@
+<Solution>
+  <Folder Name="/.setup/">
+    <File Path=".github/PULL_REQUEST_TEMPLATE.md" />
+    <File Path=".github/workflows/dotnet-beta.yml" />
+    <File Path=".github/workflows/dotnet-release.yml" />
+    <File Path=".github/workflows/dotnet-test.yml" />
+    <File Path="Directory.Packages.props" />
+    <File Path="nuget.config" />
+    <File Path="README.md" />
+  </Folder>
+  <Folder Name="/example/">
+    <File Path="example/Directory.Build.props" />
+    <Project Path="example/Scribbly.Broker.Cookbook.ApiService/Scribbly.Broker.Cookbook.ApiService.csproj" />
+    <Project Path="example/Scribbly.Broker.Cookbook.AppHost/Scribbly.Broker.Cookbook.AppHost.csproj" />
+    <Project Path="example/Scribbly.Broker.Cookbook.ServiceDefaults/Scribbly.Broker.Cookbook.ServiceDefaults.csproj" />
+    <Project Path="example/Scribbly.Broker.Cookbook.Tests/Scribbly.Broker.Cookbook.Tests.csproj" />
+    <Project Path="example/Scribbly.Broker.Cookbook.Web/Scribbly.Broker.Cookbook.Web.csproj" />
+  </Folder>
+  <Folder Name="/lib/">
+    <File Path="source/Directory.Build.props" />
+    <Project Path="source/Scribbly.Broker.Contract/Scribbly.Broker.Contract.csproj" />
+    <Project Path="source/Scribbly.Broker.MicrosoftHosting/Scribbly.Broker.MicrosoftHosting.csproj" />
+    <Project Path="source/Scribbly.Broker/Scribbly.Broker.csproj" />
+  </Folder>
+  <Folder Name="/tests/" />
+</Solution>
