@@ -1,4 +1,4 @@
-﻿name: 🚢🚢 Publish Pre-Release 🚢🚢
+﻿name: 🚢 Publish Beta 🚢
 
 on:
   workflow_dispatch:
