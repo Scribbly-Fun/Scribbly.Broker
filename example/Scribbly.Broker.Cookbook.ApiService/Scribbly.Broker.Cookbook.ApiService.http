@@ -1,0 +1,5 @@
+﻿@Scribbly.Broker.Cookbook.ApiService_HostAddress = https://localhost:7514
+
+GET {{Scribbly.Broker.Cookbook.ApiService_HostAddress}}/weather
+
+###
