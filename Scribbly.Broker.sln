@@ -1,0 +1,100 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36221.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{BC6A7C2A-B179-4160-97E2-D28326DCE57B}"
+	ProjectSection(SolutionItems) = preProject
+		source\Directory.Build.props = source\Directory.Build.props
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{E0733C32-22CC-447E-99C3-071AB77B894B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "example", "example", "{417F3857-7F6C-4D87-9427-EDB0E6DE867E}"
+	ProjectSection(SolutionItems) = preProject
+		example\Directory.Build.props = example\Directory.Build.props
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".setup", ".setup", "{991BFF85-73F7-4B4D-88F8-AE1E255C9A91}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Packages.props = Directory.Packages.props
+		.github\workflows\dotnet-beta.yml = .github\workflows\dotnet-beta.yml
+		.github\workflows\dotnet-release.yml = .github\workflows\dotnet-release.yml
+		.github\workflows\dotnet-test.yml = .github\workflows\dotnet-test.yml
+		nuget.config = nuget.config
+		.github\PULL_REQUEST_TEMPLATE.md = .github\PULL_REQUEST_TEMPLATE.md
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scribbly.Broker.Contract", "source\Scribbly.Broker.Contract\Scribbly.Broker.Contract.csproj", "{F8E1C42E-00A7-428F-BCED-637F6DF71B10}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scribbly.Broker", "source\Scribbly.Broker\Scribbly.Broker.csproj", "{06E5108D-37C2-4985-A7BE-2641A7CC27E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scribbly.Broker.MicrosoftHosting", "source\Scribbly.Broker.MicrosoftHosting\Scribbly.Broker.MicrosoftHosting.csproj", "{91D6B9B3-4433-4A04-8C49-27AF0BF0994F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scribbly.Broker.Cookbook.AppHost", "example\Scribbly.Broker.Cookbook.AppHost\Scribbly.Broker.Cookbook.AppHost.csproj", "{98EC4A1C-28EA-4DBA-835C-43C56BE0AD28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scribbly.Broker.Cookbook.ServiceDefaults", "example\Scribbly.Broker.Cookbook.ServiceDefaults\Scribbly.Broker.Cookbook.ServiceDefaults.csproj", "{C81888C7-07F1-FE72-2790-D9E155E3B2F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scribbly.Broker.Cookbook.ApiService", "example\Scribbly.Broker.Cookbook.ApiService\Scribbly.Broker.Cookbook.ApiService.csproj", "{97108099-1567-6FEB-6DD4-193863C6ACB4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scribbly.Broker.Cookbook.Web", "example\Scribbly.Broker.Cookbook.Web\Scribbly.Broker.Cookbook.Web.csproj", "{DB92E885-E581-4174-6C4A-18F396B14F2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scribbly.Broker.Cookbook.Tests", "example\Scribbly.Broker.Cookbook.Tests\Scribbly.Broker.Cookbook.Tests.csproj", "{A9A47FB0-2486-0A1C-307B-3978D3DD32A6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F8E1C42E-00A7-428F-BCED-637F6DF71B10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8E1C42E-00A7-428F-BCED-637F6DF71B10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8E1C42E-00A7-428F-BCED-637F6DF71B10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8E1C42E-00A7-428F-BCED-637F6DF71B10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06E5108D-37C2-4985-A7BE-2641A7CC27E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06E5108D-37C2-4985-A7BE-2641A7CC27E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06E5108D-37C2-4985-A7BE-2641A7CC27E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06E5108D-37C2-4985-A7BE-2641A7CC27E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91D6B9B3-4433-4A04-8C49-27AF0BF0994F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91D6B9B3-4433-4A04-8C49-27AF0BF0994F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91D6B9B3-4433-4A04-8C49-27AF0BF0994F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91D6B9B3-4433-4A04-8C49-27AF0BF0994F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98EC4A1C-28EA-4DBA-835C-43C56BE0AD28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98EC4A1C-28EA-4DBA-835C-43C56BE0AD28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98EC4A1C-28EA-4DBA-835C-43C56BE0AD28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98EC4A1C-28EA-4DBA-835C-43C56BE0AD28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C81888C7-07F1-FE72-2790-D9E155E3B2F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C81888C7-07F1-FE72-2790-D9E155E3B2F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C81888C7-07F1-FE72-2790-D9E155E3B2F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C81888C7-07F1-FE72-2790-D9E155E3B2F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97108099-1567-6FEB-6DD4-193863C6ACB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97108099-1567-6FEB-6DD4-193863C6ACB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97108099-1567-6FEB-6DD4-193863C6ACB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97108099-1567-6FEB-6DD4-193863C6ACB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB92E885-E581-4174-6C4A-18F396B14F2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB92E885-E581-4174-6C4A-18F396B14F2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB92E885-E581-4174-6C4A-18F396B14F2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB92E885-E581-4174-6C4A-18F396B14F2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9A47FB0-2486-0A1C-307B-3978D3DD32A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9A47FB0-2486-0A1C-307B-3978D3DD32A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9A47FB0-2486-0A1C-307B-3978D3DD32A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9A47FB0-2486-0A1C-307B-3978D3DD32A6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F8E1C42E-00A7-428F-BCED-637F6DF71B10} = {BC6A7C2A-B179-4160-97E2-D28326DCE57B}
+		{06E5108D-37C2-4985-A7BE-2641A7CC27E3} = {BC6A7C2A-B179-4160-97E2-D28326DCE57B}
+		{91D6B9B3-4433-4A04-8C49-27AF0BF0994F} = {BC6A7C2A-B179-4160-97E2-D28326DCE57B}
+		{98EC4A1C-28EA-4DBA-835C-43C56BE0AD28} = {417F3857-7F6C-4D87-9427-EDB0E6DE867E}
+		{C81888C7-07F1-FE72-2790-D9E155E3B2F4} = {417F3857-7F6C-4D87-9427-EDB0E6DE867E}
+		{97108099-1567-6FEB-6DD4-193863C6ACB4} = {417F3857-7F6C-4D87-9427-EDB0E6DE867E}
+		{DB92E885-E581-4174-6C4A-18F396B14F2C} = {417F3857-7F6C-4D87-9427-EDB0E6DE867E}
+		{A9A47FB0-2486-0A1C-307B-3978D3DD32A6} = {417F3857-7F6C-4D87-9427-EDB0E6DE867E}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C3497662-BC2F-4E64-8332-1533120E495B}
+	EndGlobalSection
+EndGlobal
