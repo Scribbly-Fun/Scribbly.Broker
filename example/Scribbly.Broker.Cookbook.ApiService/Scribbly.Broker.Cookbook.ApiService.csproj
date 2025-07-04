@@ -8,11 +8,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\source\Scribbly.Broker.MicrosoftHosting\Scribbly.Broker.MicrosoftHosting.csproj" />
+    <ProjectReference Include="..\..\source\Scribbly.Broker.OpenTelemetry\Scribbly.Broker.OpenTelemetry.csproj" />
+    <ProjectReference Include="..\..\source\Scribbly.Broker\Scribbly.Broker.csproj" />
     <ProjectReference Include="..\Scribbly.Broker.Cookbook.ServiceDefaults\Scribbly.Broker.Cookbook.ServiceDefaults.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.OpenApi"/>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
   </ItemGroup>
 
 </Project>

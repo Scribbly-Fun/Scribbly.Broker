@@ -13,11 +13,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Scribbly.Broker.Cookbook.ApiService\Scribbly.Broker.Cookbook.ApiService.csproj" />
-    <ProjectReference Include="..\Scribbly.Broker.Cookbook.Web\Scribbly.Broker.Cookbook.Web.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Aspire.Hosting.AppHost"/>
+    <PackageReference Include="Aspire.Hosting.AppHost" />
   </ItemGroup>
 
 </Project>
