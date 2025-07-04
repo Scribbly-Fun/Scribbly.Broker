@@ -2,6 +2,7 @@
    <PropertyGroup>
      <TargetFramework>net9.0</TargetFramework>
      <LangVersion>latestmajor</LangVersion>
+     <IsPackable>false</IsPackable>
      <ImplicitUsings>enable</ImplicitUsings>
      <Nullable>enable</Nullable>
      <PackageProjectUrl>https://github.com/Scribbly-Fun/Scribbly.Broker</PackageProjectUrl>

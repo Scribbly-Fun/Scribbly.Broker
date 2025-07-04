@@ -22,5 +22,9 @@
     <Project Path="source/Scribbly.Broker.MicrosoftHosting/Scribbly.Broker.MicrosoftHosting.csproj" />
     <Project Path="source/Scribbly.Broker/Scribbly.Broker.csproj" />
   </Folder>
-  <Folder Name="/tests/" />
+  <Folder Name="/tests/">
+    <File Path="tests/Directory.Build.props" />
+    <Project Path="tests/Scribbly.Broker.IntegrationTests/Scribbly.Broker.IntegrationTests.csproj" Id="8e061b3b-593d-44fc-b5a5-b0e7b730ecb5" />
+    <Project Path="tests/Scribbly.Broker.UnitTests/Scribbly.Broker.UnitTests.csproj" Id="c4db469c-3731-4384-ab90-023d80247697" />
+  </Folder>
 </Solution>

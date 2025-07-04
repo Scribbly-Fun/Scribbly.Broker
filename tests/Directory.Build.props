@@ -1,10 +1,9 @@
 <Project>
    <PropertyGroup>
-     <TargetFrameworks>netstandard2.0;net8.0;net9.0</TargetFrameworks>
+     <IsPackable>false</IsPackable>
      <LangVersion>latestmajor</LangVersion>
      <ImplicitUsings>enable</ImplicitUsings>
      <Nullable>enable</Nullable>
-     <GenerateDocumentationFile>True</GenerateDocumentationFile>
      <PackageProjectUrl>https://github.com/Scribbly-Fun/Scribbly.Broker</PackageProjectUrl>
      <RepositoryUrl>https://github.com/Scribbly-Fun/Scribbly.Broker</RepositoryUrl>
      <PackageIcon>scribbly_logo.png</PackageIcon>
@@ -18,16 +17,5 @@
   <PropertyGroup>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
   </PropertyGroup>
-  
-  <ItemGroup>
-    <None Include="..\..\docs\scribbly_logo.png">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-    <None Include="..\..\README.md">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-  </ItemGroup>
-  
+
 </Project>
