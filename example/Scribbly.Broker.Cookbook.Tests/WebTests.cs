@@ -18,9 +18,9 @@ public class WebTests
         await app.StartAsync();
 
         // Act
-        var httpClient = app.CreateHttpClient("webfrontend");
-        await resourceNotificationService.WaitForResourceAsync("webfrontend", KnownResourceStates.Running).WaitAsync(TimeSpan.FromSeconds(30));
-        var response = await httpClient.GetAsync("/");
+        var httpClient = app.CreateHttpClient("scrb-broker");
+        await resourceNotificationService.WaitForResourceAsync("scrb-broker", KnownResourceStates.Running).WaitAsync(TimeSpan.FromSeconds(30));
+        var response = await httpClient.GetAsync("/weather");
 
         // Assert
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);

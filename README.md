@@ -6,18 +6,16 @@
 [![GitHub issues](https://img.shields.io/github/issues/Scribbly-Fun/Scribbly.Broker)](https://github.com/Scribbly-Fun/Scribbly.Broker/issues)
 ![GitHub Repo stars](https://img.shields.io/github/stars/Scribbly-Fun/Scribbly.Broker?style=social)
 ![GitHub forks](https://img.shields.io/github/forks/Scribbly-Fun/Scribbly.Broker?style=social)
-[![DOTNET TEST](https://github.com/Scribbly-Fun/Scribbly.Broker/actions/workflows/dotnet-test.yml/badge.svg)](https://github.com/Scribbly-Fun/Scribbly.Broker/actions/workflows/dotnet-test.yml)
-[![PUBLISH RELEASE](https://github.com/Scribbly-Fun/Scribbly.Broker/actions/workflows/dotnet-release.yml/badge.svg)](https://github.com/Scribbly-Fun/Scribbly.Broker/actions/workflows/dotnet-release.yml)
+[![Tests](https://github.com/Scribbly-Fun/Scribbly.Broker/actions/workflows/dotnet-test.yml/badge.svg?branch=main)](https://github.com/Scribbly-Fun/Scribbly.Broker/actions/workflows/dotnet-test.yml)
 ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/Scribbly-Fun/Scribbly.Broker/main)
 
 # Scribbly Broker
 
 A publisher used for commands and queries based on the Mediator Design Pattern.
 
-![Static Badge](https://img.shields.io/badge/COMMAND-blue)  
+![Static Badge](https://img.shields.io/badge/COMMAND-blue)
 ![Static Badge](https://img.shields.io/badge/QUERY-green)
 ![Static Badge](https://img.shields.io/badge/NOTIFY-blue)
-
 
 ## Table of Contents
 1. [Packages](#Packages)
@@ -125,20 +123,39 @@ app.MapGet("/weather", async (IBrokerStream streamer, IBrokerPublisher publisher
 # 🎁 Packages
 
 ![Scribbly.Broker.Contract](https://img.shields.io/badge/Scribbly.Broker.Contract-blue)  
+
+Simply public interfaces and delegates used to interface with the framework.
+
 ![Scribbly.Broker](https://img.shields.io/badge/Scribbly.Broker-blue)  
+
+The core framework executing and routing notificaitons to handlers.
+
 ![Scribbly.Broker.MicrosoftHosting](https://img.shields.io/badge/Scribbly.Broker.MicrosoftHosting-blue)  
+
+A wraper leveraging the Microsoft DI container to resolve services and handlers.
+
 ![Scribbly.Broker.OpenTelemetry](https://img.shields.io/badge/Scribbly.Broker.OpenTelemetry-blue)  
+
+An extension to allow asynconouse tracing and message tracking through the Broker framework
 
 # 💪 Notifcations
 
+![INotification](https://img.shields.io/badge/INotification-blue) 
 
 # 🛒 Handlers
 
+![INotificationHandler](https://img.shields.io/badge/INotificationHandler-blue) 
 
 # 🛁 Behaviors
 
+![IBrokerBehavior](https://img.shields.io/badge/IBrokerBehavior-blue) 
 
 # 🛁 Pipelines
 
+![INotificationPipeline](https://img.shields.io/badge/INotificationPipeline-blue) 
+
+![IQueryPipeline](https://img.shields.io/badge/IQueryPipeline-blue) 
 
 # 🎉 Hosting
+
+![AddScribblyBroker](https://img.shields.io/badge/AddScribblyBroker-blue) 
