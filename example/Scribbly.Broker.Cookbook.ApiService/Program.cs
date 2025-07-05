@@ -9,7 +9,7 @@ builder.Services.AddScribblyBroker(options =>
 {
     options.AsScoped = true;
 
-    options.Assembly = typeof(Program).Assembly;
+    options.AddHandlersFromAssembly<Program>();
 
     options
         .AddBehavior<TracingBehavior>()
