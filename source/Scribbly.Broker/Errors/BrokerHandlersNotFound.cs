@@ -1,10 +1,10 @@
 ﻿namespace Scribbly.Broker.Errors;
 
 /// <summary>
-/// An meaningful exception used when the broker can't locate a handler for the message published.
+/// A meaningful exception used when the broker can't locate a handler for the message published.
 /// </summary>
 /// <typeparam name="TNotification"></typeparam>
-public sealed class BrokerHandlersNotFound<TNotification> : BrokerException<TNotification> where TNotification : INotification
+public sealed class BrokerHandlersNotFound<TNotification> : BrokerNotificationException<TNotification> where TNotification : INotification
 {
     /// <inheritdoc />
     public BrokerHandlersNotFound() 
