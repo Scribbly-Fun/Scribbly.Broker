@@ -1,21 +1,34 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿#if NET8_0_OR_GREATER
+using System.Runtime.CompilerServices;
+#endif
 using Scribbly.Broker.Errors;
 using Scribbly.Broker.Pipelines;
-using System.Runtime.CompilerServices;
 
 namespace Scribbly.Broker;
 
+/// <summary>
+/// The broker is responsible for accepting messages and routing them through behavior pipelines and eventually the handlers.
+/// The broker depends on an <seealso cref="IHandlerResolver"/> in order to resolve the handlers.  This service can be overridden to leverage a custom resolver.
+/// The broker routes handlers through pipelines using a <seealso cref="INotificationPipeline"/> and <seealso cref="IQueryPipeline"/>
+/// </summary>
 internal sealed class Broker : IBroker
 {
-    private readonly IServiceProvider _serviceProvider;
     private readonly BrokerOptions _options;
+    private readonly IHandlerResolver _resolver;
     private readonly INotificationPipeline _notificationPipeline;
     private readonly IQueryPipeline _queryPipeline;
 
-    public Broker(IServiceProvider serviceProvider, BrokerOptions options, INotificationPipeline notificationPipeline, IQueryPipeline queryPipeline)
+    /// <summary>
+    /// Creates a new broker.
+    /// </summary>
+    /// <param name="options"></param>
+    /// <param name="resolver"></param>
+    /// <param name="notificationPipeline"></param>
+    /// <param name="queryPipeline"></param>
+    public Broker(BrokerOptions options, IHandlerResolver resolver, INotificationPipeline notificationPipeline, IQueryPipeline queryPipeline)
     {
-        _serviceProvider = serviceProvider;
         _options = options;
+        _resolver = resolver;
         _notificationPipeline = notificationPipeline;
         _queryPipeline = queryPipeline;
     }
@@ -23,10 +36,7 @@ internal sealed class Broker : IBroker
     /// <inheritdoc />
     public async Task Publish<TNotification>(TNotification notification, CancellationToken cancellation = default) where TNotification : INotification
     {
-        var handlers = _serviceProvider
-            .GetServices<INotificationHandler<TNotification>>()
-            .Select(h => new NotificationRequestDelegate<TNotification>(h.Handle))
-            .ToList();
+        var handlers = _resolver.ResolveHandlers<TNotification>();
 
         GuardInvocationOfHandlers(notification, handlers);
         
@@ -39,10 +49,7 @@ internal sealed class Broker : IBroker
     /// <inheritdoc />
     public Task PublishConcurrent<TNotification>(TNotification notification, CancellationToken cancellation = default) where TNotification : INotification
     {
-        var handlers = _serviceProvider
-            .GetServices<INotificationHandler<TNotification>>()
-            .Select(h => new NotificationRequestDelegate<TNotification>(h.Handle))
-            .ToList();
+        var handlers = _resolver.ResolveHandlers<TNotification>();
 
         GuardInvocationOfHandlers(notification, handlers);
 
@@ -55,10 +62,7 @@ internal sealed class Broker : IBroker
         CancellationToken cancellation = default) 
         where TNotification : INotification<TNotificationResult>
     {
-        var handlers = _serviceProvider
-            .GetServices<INotificationHandler<TNotification, TNotificationResult>>()
-            .Select(h => new QueryRequestDelegate<TNotification, TNotificationResult>(h.Handle))
-            .ToList();
+        var handlers = _resolver.ResolveHandlers<TNotification, TNotificationResult>();
 
         GuardInvocationOfHandlers(notification, handlers);
 
@@ -79,10 +83,7 @@ internal sealed class Broker : IBroker
         CancellationToken cancellation = default) 
         where TNotification : INotification<TNotificationResult>
     {
-        var handlers = _serviceProvider
-            .GetServices<INotificationHandler<TNotification, TNotificationResult>>()
-            .Select(h => new QueryRequestDelegate<TNotification, TNotificationResult>(h.Handle))
-            .ToList();
+        var handlers = _resolver.ResolveHandlers<TNotification, TNotificationResult>();
 
         GuardInvocationOfHandlers(notification, handlers);
 
@@ -97,10 +98,7 @@ internal sealed class Broker : IBroker
         [EnumeratorCancellation] CancellationToken cancellation = default) 
         where TNotification : INotification<TNotificationResult>
     {
-        var handlers = _serviceProvider
-            .GetServices<INotificationHandler<TNotification, TNotificationResult>>()
-            .Select(h => new QueryRequestDelegate<TNotification, TNotificationResult>(h.Handle))
-            .ToList();
+        var handlers = _resolver.ResolveHandlers<TNotification, TNotificationResult>();
 
         GuardInvocationOfHandlers(notification, handlers);
 

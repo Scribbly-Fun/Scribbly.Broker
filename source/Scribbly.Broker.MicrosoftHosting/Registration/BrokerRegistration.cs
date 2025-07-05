@@ -50,6 +50,7 @@ public static class BrokerRegistration
             services.AddScoped<IBroker, Broker>();
             services.AddScoped<IBrokerPublisher, Broker>();
             services.AddScoped<IBrokerQuery, Broker>();
+            services.AddScoped<IHandlerResolver, MicrosoftHostingHandlerResolver>();
 #if NET8_0_OR_GREATER
             services.AddScoped<IBrokerStream, Broker>();
 #endif
@@ -59,6 +60,7 @@ public static class BrokerRegistration
             services.AddSingleton<IBroker, Broker>();
             services.AddSingleton<IBrokerPublisher, Broker>();
             services.AddSingleton<IBrokerQuery, Broker>();
+            services.AddSingleton<IHandlerResolver, MicrosoftHostingHandlerResolver>();
 #if NET8_0_OR_GREATER
             services.AddSingleton<IBrokerStream, Broker>();
 #endif
