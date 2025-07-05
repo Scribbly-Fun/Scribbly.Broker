@@ -1,6 +1,8 @@
 name: dotnet format
 on:
   workflow_call:
+  workflow_dispatch:
+          
 jobs:
   dotnet-format:
     runs-on: ubuntu-latest
