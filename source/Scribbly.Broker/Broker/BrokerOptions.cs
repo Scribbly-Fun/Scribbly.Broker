@@ -1,5 +1,5 @@
-﻿using System.Reflection;
-using Scribbly.Broker.Pipelines;
+﻿using Scribbly.Broker.Pipelines;
+using System.Reflection;
 
 namespace Scribbly.Broker;
 
@@ -7,8 +7,10 @@ namespace Scribbly.Broker;
 /// Configuration options for the broker services
 /// <seealso cref="IBroker"/>
 /// </summary>
-public sealed class BrokerOptions : IPipelineBuilder
+public sealed class BrokerOptions : IPipelineBuilder, IHandlerTypeBuilder
 {
+    private readonly IHandlerTypeBuilder _handlerBuilder = new HandlerTypeBuilder();
+    
     /// <summary>
     /// When true the services will be registered as a scoped service and can support scoped services in the handlers.
     /// </summary>
@@ -25,11 +27,6 @@ public sealed class BrokerOptions : IPipelineBuilder
     /// <remarks>this defaults to false and could waste memory.  As such it should only be turned on for debugging.</remarks>
     /// </summary>
     public bool CaptureNotificationsInErrors { get; set; } = false;
-
-    /// <summary>
-    /// Defines the assembly to search for handlers.
-    /// </summary>
-    public Assembly Assembly { get; set; } = Assembly.GetExecutingAssembly();
 
     /// <summary>
     /// A collection of behaviors to add to the pipeline
@@ -91,43 +88,29 @@ public sealed class BrokerOptions : IPipelineBuilder
         return this;
     }
 
-}
+    /// <inheritdoc />
+    public IReadOnlyCollection<Type> NotificationHandlers => _handlerBuilder.NotificationHandlers;
 
-/// <summary>
-/// Builds up a collection of behaviors known as a pipeline
-/// </summary>
-public interface IPipelineBuilder
-{
-    /// <summary>
-    /// Adds a behavior to the collection of the behaviors.
-    /// <remarks>Behaviors will be registered in the DI container and support injection.</remarks>
-    /// </summary>
-    /// <typeparam name="TBehavior">The type of behavior to add</typeparam>
-    /// <returns>The builder to add more types.</returns>
-    IPipelineBuilder AddBehavior<TBehavior>() where TBehavior : IBrokerBehavior;
+    /// <inheritdoc />
+    public IReadOnlyCollection<Type> QueryHandlers => _handlerBuilder.QueryHandlers;
 
-    /// <summary>
-    /// Adds a behavior to the collection of the behaviors.
-    /// <remarks>Behaviors will be registered in the DI container and support injection.</remarks>
-    /// </summary>
-    /// <param name="type">The type</param>
-    /// <exception cref="InvalidOperationException">When the type is not a behavior</exception>
-    /// <returns>The builder to add more types.</returns>
-    IPipelineBuilder AddBehavior(Type type);
+    /// <inheritdoc />
+    public IHandlerTypeBuilder AddHandlersFromAssembly(Assembly assembly) => 
+        _handlerBuilder.AddHandlersFromAssembly(assembly);
 
-    /// <summary>
-    /// Overrides the pipelines used internally by the <see cref="IBroker"/>
-    /// and allows the consumer to inject code into the <see cref="IBrokerBehavior"/> execution pipeline
-    /// </summary>
-    /// <typeparam name="TPipeline"></typeparam>
-    /// <returns></returns>
-    IPipelineBuilder AddNotificationPipeline<TPipeline>() where TPipeline : INotificationPipeline;
-    
-    /// <summary>
-    /// Overrides the pipelines used internally by the <see cref="IBroker"/>
-    /// and allows the consumer to inject code into the <see cref="IBrokerBehavior"/> execution pipeline
-    /// </summary>
-    /// <typeparam name="TPipeline"></typeparam>
-    /// <returns></returns>
-    IPipelineBuilder AddQueryPipeline<TPipeline>() where TPipeline : IQueryPipeline;
+    /// <inheritdoc />
+    public IHandlerTypeBuilder AddHandlersFromAssembly<TAssemblyMarker>() => 
+        _handlerBuilder.AddHandlersFromAssembly<TAssemblyMarker>();
+
+    /// <inheritdoc />
+    public IHandlerTypeBuilder AddHandlersFromAssembly(Type assemblyMarker) => 
+        _handlerBuilder.AddHandlersFromAssembly(assemblyMarker);
+
+    /// <inheritdoc />
+    public IHandlerTypeBuilder AddHandler<THandler, TNotification>() where THandler : INotificationHandler<TNotification> where TNotification : INotification =>
+        _handlerBuilder.AddHandler<THandler, TNotification>();
+
+    /// <inheritdoc />
+    public IHandlerTypeBuilder AddHandler(Type handlerType) => 
+        _handlerBuilder.AddHandler(handlerType);
 }

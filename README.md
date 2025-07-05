@@ -18,11 +18,12 @@ A publisher used for commands and queries based on the Mediator Design Pattern.
 ![Static Badge](https://img.shields.io/badge/NOTIFY-blue)
 
 ## Table of Contents
-1. [🎁 Packages](#🎁_Packages)
-2. [Notifications](#Notifcations)
-3. [Handlers](#Handlers)
-4. [Behaviors](#Behaviors)
-5. [Pipelines](#Pipelines)
+1. [🎁 Packages](#packages)
+2. [💪 Notifications](#notifcations)
+3. [🛒 Handlers](#handlers)
+4. [🛁 Behaviors](#behaviors)
+5. [🛁 Pipelines](#pipelines)
+5. [🎉 Hosting](#hosting)
 
 ## Example
 
@@ -37,7 +38,7 @@ builder.Services.AddScribblyBroker(options =>
 {
     options.AsScoped = true;
 
-    options.Assembly = typeof(Program).Assembly;
+    options.AddHandlersFromAssembly<Program>();
 
     options
         .AddBehavior<TracingBehavior>()

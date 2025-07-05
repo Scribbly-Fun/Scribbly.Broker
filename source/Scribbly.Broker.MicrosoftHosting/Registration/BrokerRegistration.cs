@@ -66,13 +66,7 @@ public static class BrokerRegistration
 #endif
         }
 
-        var notificationHandlers = options.Assembly
-            .GetTypes()
-            .Where(t =>
-                t is { IsInterface: false, IsAbstract: false } &&
-                t.GetInterfaces().Any(x => x.IsGenericType && x.GetGenericTypeDefinition() == typeof(INotificationHandler<>)));
-
-        foreach (var implementationType in notificationHandlers)
+        foreach (var implementationType in options.NotificationHandlers)
         {
             services.AddTransient(
                 implementationType
@@ -81,13 +75,7 @@ public static class BrokerRegistration
                 implementationType);
         }
 
-        var notificationHandlersWithResponse = options.Assembly
-            .GetTypes()
-            .Where(t =>
-                t is { IsInterface: false, IsAbstract: false } &&
-                t.GetInterfaces().Any(x => x.IsGenericType && x.GetGenericTypeDefinition() == typeof(INotificationHandler<,>)));
-
-        foreach (var implementationType in notificationHandlersWithResponse)
+        foreach (var implementationType in options.QueryHandlers)
         {
             services.AddTransient(
                 implementationType

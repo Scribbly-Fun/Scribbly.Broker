@@ -1,38 +1,26 @@
 ﻿namespace Scribbly.Broker.Errors;
 
 /// <summary>
-/// A base exception for all Broker related errors.
+/// The base of all Scribbly Broker exceptions.
 /// </summary>
-public abstract class BrokerException<TNotification> : Exception where TNotification : INotification
+public abstract class BrokerException : Exception
 {
     /// <summary>
-    /// 
+    /// Creates a new broker exception
     /// </summary>
-    public Type NotificationType { get; init; }
-
-    /// <summary>
-    /// 
-    /// </summary>
-    public TNotification? Notification { get; init; }
-
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="message"></param>
-    public BrokerException(string message): base(message)
+    /// <param name="message">A message to store in the exception</param>
+    protected BrokerException(string message) : base(message)
     {
-        NotificationType = typeof(TNotification);
-        Notification = default;
+        
     }
-
+    
     /// <summary>
-    /// 
+    /// Wraps an exception with the broker exception
     /// </summary>
-    /// <param name="notice"></param>
-    /// <param name="message"></param>
-    public BrokerException(TNotification notice, string message): base(message)
+    /// <param name="message">A message to store in the exception</param>
+    /// <param name="innerException">The exception wrapped by the broker exception</param>
+    protected BrokerException(string message, Exception innerException) : base(message, innerException)
     {
-        NotificationType = typeof(TNotification);
-        Notification = notice;
+        
     }
 }
