@@ -1,4 +1,4 @@
-﻿namespace Scribbly.Broker.IntegrationTests.Builder.Tests;
+﻿namespace Scribbly.Broker.IntegrationTests;
 
 public class TestingConstants
 {
