@@ -15,7 +15,8 @@ public class DefaultMediatorTestingFixture : IDisposable
         services.AddScribblyBroker(ops =>
         {
             ops.AsScoped = false;
-            ops.Assembly = Assembly.GetExecutingAssembly();
+
+            ops.AddHandlersFromAssembly<DefaultMediatorTestingFixture>();
 
             ops
                 .AddBehavior<TestPipelineBehavior1>()
