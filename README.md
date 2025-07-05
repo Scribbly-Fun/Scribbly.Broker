@@ -18,10 +18,10 @@ A publisher used for commands and queries based on the Mediator Design Pattern.
 ![Static Badge](https://img.shields.io/badge/NOTIFY-blue)
 
 ## Table of Contents
-1. [Packages](#Packages)
-1. [Notifcations](#Notifcations)
-2. [Handlers](#Handlers)
-3. [Behaviors](#Behaviors)
+1. [🎁 Packages](#🎁_Packages)
+2. [Notifications](#Notifcations)
+3. [Handlers](#Handlers)
+4. [Behaviors](#Behaviors)
 5. [Pipelines](#Pipelines)
 
 ## Example
