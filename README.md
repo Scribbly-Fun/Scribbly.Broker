@@ -17,6 +17,13 @@ A publisher used for commands and queries based on the Mediator Design Pattern.
 ![Static Badge](https://img.shields.io/badge/QUERY-green)
 ![Static Badge](https://img.shields.io/badge/NOTIFY-blue)
 
+```mermaid
+sequenceDiagram
+    Publish-->>Behavior: wraps handler with middleware
+    Behavior-->>Handler: process notification
+    Handler-)Publisher: returns to caller
+```
+
 ## Table of Contents
 1. [🎁 Packages](#packages)
 2. [💪 Notifications](#notifcations)
