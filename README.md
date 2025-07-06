@@ -18,6 +18,8 @@ A publisher used for commands and queries based on the Mediator Design Pattern.
 ![Static Badge](https://img.shields.io/badge/NOTIFY-blue)
 
 ```mermaid
+%% sequence displaying pipeline
+
 sequenceDiagram
     Publish-->>Behavior: wraps handler with middleware
     Behavior-->>Handler: process notification
