@@ -1,7 +1,7 @@
 ﻿namespace Scribbly.Broker;
 
 /// <summary>
-/// 
+/// Extensions used to apply telemetry data to your message
 /// </summary>
 public static class TraceableMessageExtensions
 {
@@ -91,7 +91,7 @@ public static class TraceableMessageExtensions
 
         if (exception is not null)
         {
-            activity.RecordException(exception);
+            activity.AddException(exception);
         }
 
         if (!string.IsNullOrEmpty(message))

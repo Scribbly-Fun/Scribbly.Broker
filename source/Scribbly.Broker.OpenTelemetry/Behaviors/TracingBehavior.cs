@@ -2,6 +2,10 @@
 
 namespace Scribbly.Broker.Behaviors;
 
+/// <summary>
+/// Wraps your handler inside an OTEL span.
+/// </summary>
+/// <param name="source">An activity source</param>
 public sealed class TracingBehavior(ActivitySource source) : IBrokerBehavior
 {
     /// <inheritdoc />

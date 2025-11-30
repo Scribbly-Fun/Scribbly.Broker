@@ -1,5 +1,4 @@
 ﻿using Scribbly.Broker.Cookbook.ApiService.Handlers;
-using System;
 
 namespace Scribbly.Broker.Cookbook.ApiService.Queries;
 
@@ -10,8 +9,6 @@ public sealed class RandomQueryHandler: INotificationHandler<WeatherQuery, Weath
     /// <inheritdoc />
     public Task<WeatherForecast> Handle(WeatherQuery notification, CancellationToken cancellationToken = default)
     {
-        
-
         return Task.FromResult(new WeatherForecast
         (
             DateOnly.FromDateTime(DateTime.Now.AddDays(Random.Next(1, 20))),

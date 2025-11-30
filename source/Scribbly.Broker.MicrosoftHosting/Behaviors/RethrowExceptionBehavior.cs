@@ -3,6 +3,10 @@ using System.Diagnostics;
 
 namespace Scribbly.Broker.Behaviors;
 
+/// <summary>
+/// Behavior that appends OTEL tracing to an exception but re-throws the error.
+/// </summary>
+/// <param name="logger">A logger to log the error.</param>
 public sealed class RethrowExceptionBehavior(ILogger<RethrowExceptionBehavior> logger) : IBrokerBehavior
 {
     /// <inheritdoc />
@@ -23,7 +27,10 @@ public sealed class RethrowExceptionBehavior(ILogger<RethrowExceptionBehavior> l
     }
 }
 
-
+/// <summary>
+/// Behavior that appends OTEL tracing to an exception but re-throws the error.
+/// </summary>
+/// <param name="logger">A logger to log the error.</param>
 public sealed class RethrowExceptionBehavior<T1>(ILogger<RethrowExceptionBehavior> logger) : IBrokerBehavior where T1 : Exception
 {
     /// <inheritdoc />
@@ -44,6 +51,10 @@ public sealed class RethrowExceptionBehavior<T1>(ILogger<RethrowExceptionBehavio
     }
 }
 
+/// <summary>
+/// Behavior that appends OTEL tracing to an exception but re-throws the error.
+/// </summary>
+/// <param name="logger">A logger to log the error.</param>
 public sealed class RethrowExceptionBehavior<T1, T2>(ILogger<RethrowExceptionBehavior> logger) : IBrokerBehavior where T1 : Exception where T2 : Exception
 {
     /// <inheritdoc />
@@ -64,6 +75,10 @@ public sealed class RethrowExceptionBehavior<T1, T2>(ILogger<RethrowExceptionBeh
     }
 }
 
+/// <summary>
+/// Behavior that appends OTEL tracing to an exception but re-throws the error.
+/// </summary>
+/// <param name="logger">A logger to log the error.</param>
 public sealed class RethrowExceptionBehavior<T1, T2, T3>(ILogger<RethrowExceptionBehavior> logger) : IBrokerBehavior where T1 : Exception where T2 : Exception where T3 : Exception
 {
     /// <inheritdoc />
@@ -84,6 +99,10 @@ public sealed class RethrowExceptionBehavior<T1, T2, T3>(ILogger<RethrowExceptio
     }
 }
 
+/// <summary>
+/// Behavior that appends OTEL tracing to an exception but re-throws the error.
+/// </summary>
+/// <param name="logger">A logger to log the error.</param>
 public sealed class RethrowExceptionBehavior<T1, T2, T3, T4>(ILogger<RethrowExceptionBehavior> logger) : IBrokerBehavior where T1 : Exception where T2 : Exception where T3 : Exception where T4 : Exception
 {
     /// <inheritdoc />
